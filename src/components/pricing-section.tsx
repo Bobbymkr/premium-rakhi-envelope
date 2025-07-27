@@ -8,8 +8,7 @@ const PricingSection = () => {
       name: "Single Pack",
       quantity: "1 Envelope",
       price: "₹111",
-      originalPrice: "₹150",
-      discount: "26% OFF",
+      originalPrice: "₹179",
       popular: false,
       features: [
         "Premium Gold Foil Design",
@@ -23,8 +22,7 @@ const PricingSection = () => {
       name: "Trio Pack",
       quantity: "3 Envelopes",
       price: "₹299",
-      originalPrice: "₹450",
-      discount: "34% OFF",
+      originalPrice: "₹537",
       popular: true,
       features: [
         "Premium Gold Foil Design",
@@ -40,8 +38,7 @@ const PricingSection = () => {
       name: "Family Pack",
       quantity: "5 Envelopes",
       price: "₹449",
-      originalPrice: "₹750",
-      discount: "40% OFF",
+      originalPrice: "₹895",
       popular: false,
       features: [
         "Premium Gold Foil Design",
@@ -57,8 +54,7 @@ const PricingSection = () => {
       name: "Premium Bulk",
       quantity: "10 Envelopes",
       price: "₹849",
-      originalPrice: "₹1500",
-      discount: "43% OFF",
+      originalPrice: "₹1790",
       popular: false,
       features: [
         "Premium Gold Foil Design",
@@ -72,9 +68,21 @@ const PricingSection = () => {
     },
   ];
 
-  const handleWhatsAppOrder = (plan: (typeof plans)[0]) => {
+  // Dynamically add discount info
+  const updatedPlans = plans.map((plan) => {
+    const current = parseInt(plan.price.replace(/[₹,]/g, ""));
+    const original = parseInt(plan.originalPrice.replace(/[₹,]/g, ""));
+    const percentOff = Math.round(((original - current) / original) * 100);
+    return {
+      ...plan,
+      discount: `${percentOff}% OFF`,
+      savedAmount: original - current,
+    };
+  });
+
+  const handleWhatsAppOrder = (plan: (typeof updatedPlans)[0]) => {
     const message = `Hi! I want to order ${plan.name} (${plan.quantity}) for ${plan.price}. Please help me with the order process.`;
-    const phoneNumber = "918888888888"; // Replace with actual number
+    const phoneNumber = "919723727200"; // Replace with actual number
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
       message
     )}`;
@@ -93,14 +101,14 @@ const PricingSection = () => {
 
   return (
     <section className="py-24 relative overflow-hidden bg-gradient-to-br from-background via-ivory to-premium-cream">
-      {/* Enhanced Background Elements */}
+      {/* Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-r from-accent-gold/4 via-transparent to-rose-gold/4" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_800px_400px_at_25%_25%,rgba(255,215,0,0.05),transparent)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_600px_350px_at_75%_75%,rgba(218,165,32,0.04),transparent)]" />
       </div>
 
-      {/* Floating Decorative Elements */}
+      {/* Floating Dots */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="floating-element absolute top-24 left-20 w-6 h-6 bg-gradient-to-br from-accent-gold to-rose-gold rounded-full opacity-20 blur-[1px]" />
         <div
@@ -118,7 +126,7 @@ const PricingSection = () => {
       </div>
 
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
-        {/* Enhanced Section Header */}
+        {/* Header */}
         <div className="text-center mb-20 animate-in slide-in-from-bottom duration-1000">
           <div className="flex items-center justify-center mb-8 group">
             <div className="relative">
@@ -148,9 +156,9 @@ const PricingSection = () => {
           </p>
         </div>
 
-        {/* Enhanced Pricing Grid */}
+        {/* Pricing Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-          {plans.map((plan, index) => (
+          {updatedPlans.map((plan, index) => (
             <div
               key={plan.id}
               className={`relative group animate-in slide-in-from-bottom duration-1000 ${
@@ -165,7 +173,6 @@ const PricingSection = () => {
                     : "border-white/40 shadow-xl hover:shadow-2xl"
                 }`}
               >
-                {/* Popular Badge */}
                 {plan.popular && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-20">
                     <div className="bg-gradient-to-r from-accent-gold to-rose-gold text-white px-6 py-2 rounded-full text-sm font-bold flex items-center gap-2 shadow-lg">
@@ -182,18 +189,15 @@ const PricingSection = () => {
                 </div>
 
                 <div className="text-center mb-8 flex-shrink-0">
-                  {/* Plan Icon */}
                   <div className="w-16 h-16 bg-gradient-to-br from-accent-gold/20 to-rose-gold/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
                     <Gift className="w-8 h-8 text-accent-gold drop-shadow-lg" />
                   </div>
-
                   <h3 className="text-2xl font-bold text-foreground mb-2 group-hover:bg-gradient-to-r group-hover:from-accent-gold group-hover:to-rose-gold group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
                     {plan.name}
                   </h3>
                   <p className="text-foreground/70 text-lg font-semibold mb-6">
                     {plan.quantity}
                   </p>
-
                   <div className="mb-6">
                     <div className="flex items-center justify-center gap-3 mb-2">
                       <span className="text-4xl font-black bg-gradient-to-r from-accent-gold to-rose-gold bg-clip-text text-transparent">
@@ -204,19 +208,14 @@ const PricingSection = () => {
                       </span>
                     </div>
                     <p className="text-sm text-green-600 font-semibold">
-                      You save ₹
-                      {parseInt(plan.originalPrice.replace("₹", "")) -
-                        parseInt(plan.price.replace("₹", ""))}
+                      You save ₹{plan.savedAmount}
                     </p>
                   </div>
                 </div>
 
                 <ul className="space-y-4 mb-8 flex-grow">
-                  {plan.features.map((feature, featureIndex) => (
-                    <li
-                      key={featureIndex}
-                      className="flex items-start gap-3 text-sm"
-                    >
+                  {plan.features.map((feature, i) => (
+                    <li key={i} className="flex items-start gap-3 text-sm">
                       <div className="w-5 h-5 bg-gradient-to-br from-accent-gold to-rose-gold rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                         <Check className="w-3 h-3 text-white" />
                       </div>
@@ -246,7 +245,6 @@ const PricingSection = () => {
                   </Button>
                 </div>
 
-                {/* Card glow effect */}
                 <div
                   className={`absolute -inset-1 rounded-3xl blur opacity-0 group-hover:opacity-40 transition-opacity duration-500 -z-10 ${
                     plan.popular
@@ -259,7 +257,7 @@ const PricingSection = () => {
           ))}
         </div>
 
-        {/* Enhanced Bottom CTA */}
+        {/* Bottom Custom CTA */}
         <div className="text-center animate-in slide-in-from-bottom duration-1000 delay-800">
           <div className="card-glass p-8 bg-gradient-to-br from-white/30 via-white/20 to-white/10 backdrop-blur-2xl border-2 border-white/40 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-500 group max-w-2xl mx-auto">
             <div className="flex items-center justify-center mb-4">
@@ -276,16 +274,17 @@ const PricingSection = () => {
             <Button
               onClick={handleCustomOrderWhatsApp}
               variant="outline"
-              className="bg-white/20 hover:bg-white/30 backdrop-blur-xl border-2 border-accent-gold/40 hover:border-accent-gold/70 text-foreground hover:text-accent-gold px-8 py-3 text-lg font-semibold transform hover:scale-105 transition-all duration-300 shadow-lg group/btn"
+              className="bg-white/20 hover:bg-white/30 backdrop-blur-xl border-2 border-accent-gold/40 hover:border-accent-gold/70 text-foreground hover:text-accent-gold px-6 sm:px-8 py-2.5 sm:py-3 text-base sm:text-lg font-semibold transform hover:scale-105 transition-all duration-300 shadow-lg group/btn w-full sm:w-auto text-center"
             >
-              <span className="flex items-center">
-                <Sparkles className="w-5 h-5 mr-2 group-hover/btn:rotate-12 transition-transform duration-300" />
-                Contact for Custom Orders
-                <Crown className="w-5 h-5 ml-2 group-hover/btn:scale-110 transition-transform duration-300" />
+              <span className="flex items-center justify-center">
+                <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover/btn:rotate-12 transition-transform duration-300" />
+                <span className="whitespace-nowrap">
+                  Contact for Custom Orders
+                </span>
+                <Crown className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover/btn:scale-110 transition-transform duration-300" />
               </span>
             </Button>
 
-            {/* Card glow effect */}
             <div className="absolute -inset-1 bg-gradient-to-r from-accent-gold/20 via-rose-gold/20 to-lavender/20 rounded-3xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
           </div>
         </div>
