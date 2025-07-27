@@ -165,7 +165,7 @@ const HowItWorks = () => {
             </p>
             <div className="mt-6 flex items-center justify-center gap-2 text-sm text-green-600 font-semibold">
               <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-              Available 24/7
+              Available 12/7
             </div>
           </div>
 
