@@ -1,0 +1,58 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle with Gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#FFA500;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF8C00;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="envelopeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#F8F8FF;stop-opacity:0.7" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background Circle -->
+  <circle cx="32" cy="32" r="30" fill="url(#bgGradient)" filter="url(#glow)"/>
+  
+  <!-- Envelope Shape -->
+  <g transform="translate(16, 18)">
+    <!-- Envelope Body -->
+    <rect x="0" y="8" width="32" height="20" rx="2" fill="url(#envelopeGradient)" stroke="#FFD700" stroke-width="1.5"/>
+    
+    <!-- Envelope Flap -->
+    <path d="M0 8 L16 18 L32 8 Z" fill="url(#envelopeGradient)" stroke="#FFD700" stroke-width="1.5"/>
+    
+    <!-- Gold Foil Design - Rakhi Pattern -->
+    <g transform="translate(8, 14)">
+      <!-- Central Rakhi Circle -->
+      <circle cx="8" cy="6" r="4" fill="none" stroke="#FFD700" stroke-width="1.2"/>
+      <circle cx="8" cy="6" r="2" fill="#FFD700" opacity="0.8"/>
+      
+      <!-- Rakhi Threads -->
+      <line x1="2" y1="6" x2="6" y2="6" stroke="#FFD700" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="10" y1="6" x2="14" y2="6" stroke="#FFD700" stroke-width="1.5" stroke-linecap="round"/>
+      
+      <!-- Decorative Dots -->
+      <circle cx="4" cy="4" r="0.8" fill="#FFD700"/>
+      <circle cx="12" cy="4" r="0.8" fill="#FFD700"/>
+      <circle cx="4" cy="8" r="0.8" fill="#FFD700"/>
+      <circle cx="12" cy="8" r="0.8" fill="#FFD700"/>
+    </g>
+  </g>
+  
+  <!-- Sparkle Effects -->
+  <g opacity="0.8">
+    <path d="M12 12 L14 14 L12 16 L10 14 Z" fill="#FFFFFF"/>
+    <path d="M52 20 L54 22 L52 24 L50 22 Z" fill="#FFFFFF"/>
+    <path d="M48 48 L50 50 L48 52 L46 50 Z" fill="#FFFFFF"/>
+    <path d="M18 50 L20 52 L18 54 L16 52 Z" fill="#FFFFFF"/>
+  </g>
+</svg>
