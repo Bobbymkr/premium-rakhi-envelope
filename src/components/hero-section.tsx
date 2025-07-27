@@ -91,8 +91,8 @@ const HeroSection = () => {
             <div className="relative z-10 perspective-1000">
               <div className="card-glass p-8 transform hover:rotate-y-5 transition-transform duration-700">
                 <img 
-                  src="/lovable-uploads/94f2d63c-1e9d-406e-8c4a-49954e2871cc.png"
-                  alt="Premium Rakhi Envelope - Happy Raksha Bandhan"
+                  src="/lovable-uploads/d8a6a91a-fea2-4d9f-8d6b-14eb539585d1.png"
+                  alt="Premium Rakhi Envelope - Happy Raksha Bandhan with Gold Foil"
                   className="w-full h-auto rounded-lg shadow-glow"
                 />
               </div>
@@ -101,16 +101,16 @@ const HeroSection = () => {
             {/* Secondary Images */}
             <div className="absolute -bottom-10 -right-10 transform rotate-12 opacity-80">
               <img 
-                src="/lovable-uploads/ad33bffe-0129-489e-b9a8-c59b3fe83d66.png"
-                alt="Premium Rakhi Envelope Design"
+                src="/lovable-uploads/350dacf5-a9c1-44ed-b69e-ee0b6a86251b.png"
+                alt="Premium ₹500 Note in Luxury Envelope"
                 className="w-32 h-auto rounded-lg shadow-soft"
               />
             </div>
             
             <div className="absolute -top-5 -left-5 transform -rotate-6 opacity-60">
               <img 
-                src="/lovable-uploads/226c6185-a72f-4586-b299-69638902e829.png"
-                alt="Premium Rakhi Envelope in Hand"
+                src="/lovable-uploads/d8a6a91a-fea2-4d9f-8d6b-14eb539585d1.png"
+                alt="Happy Raksha Bandhan Gold Foil Design"
                 className="w-24 h-auto rounded-lg shadow-soft"
               />
             </div>

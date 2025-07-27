@@ -8,35 +8,54 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Premium Design System - Gold & Luxury Theme */
+    --background: 50 40% 95%;
+    --foreground: 24 9% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 24 9% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 24 9% 10%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 45 100% 70%;
+    --primary-foreground: 24 9% 10%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 15 80% 80%;
+    --secondary-foreground: 24 9% 10%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 60 20% 98%;
+    --muted-foreground: 25 5% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 270 30% 85%;
+    --accent-foreground: 24 9% 10%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 60 20% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 45 50% 85%;
+    --input: 45 50% 85%;
+    --ring: 45 100% 70%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+    
+    /* Premium Color Palette */
+    --accent-gold: 45 100% 70%;
+    --rose-gold: 15 80% 80%;
+    --lavender: 270 30% 85%;
+    --ivory: 60 20% 98%;
+    --luxury-bronze: 30 60% 45%;
+    --premium-cream: 50 40% 95%;
+    
+    /* Premium Gradients */
+    --gradient-premium: linear-gradient(135deg, hsl(var(--premium-cream)), hsl(var(--ivory)));
+    --gradient-gold: linear-gradient(135deg, hsl(var(--accent-gold)), hsl(var(--rose-gold)));
+    --gradient-text: linear-gradient(135deg, hsl(var(--accent-gold)), hsl(var(--luxury-bronze)));
+    
+    /* Premium Effects */
+    --shadow-soft: 0 4px 15px -3px rgba(0, 0, 0, 0.1), 0 2px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-glow: 0 0 30px rgba(255, 215, 0, 0.3);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +119,72 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer components {
+  /* Premium Component Classes */
+  .bg-gradient-premium {
+    background: var(--gradient-premium);
+  }
+  
+  .bg-gradient-text {
+    background: var(--gradient-text);
+  }
+  
+  .card-glass {
+    @apply bg-white/20 backdrop-blur-lg border border-white/30 rounded-xl;
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .btn-primary {
+    @apply bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6 py-3 rounded-lg;
+    background: var(--gradient-gold);
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition-smooth);
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .btn-glass {
+    @apply bg-white/10 backdrop-blur-md border border-white/20 text-foreground hover:bg-white/20 rounded-lg px-4 py-2;
+    transition: var(--transition-smooth);
+  }
+  
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .whatsapp-btn {
+    @apply bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full flex items-center gap-3 font-semibold;
+    transition: var(--transition-smooth);
+  }
+  
+  /* 3D Effects */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  .hover\:rotate-y-5:hover {
+    transform: rotateY(5deg);
+  }
+  
+  /* Floating Animation */
+  .floating-element {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
   }
 }

@@ -61,7 +61,14 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// Premium Colors
+				'accent-gold': 'hsl(var(--accent-gold))',
+				'rose-gold': 'hsl(var(--rose-gold))',
+				'lavender': 'hsl(var(--lavender))',
+				'ivory': 'hsl(var(--ivory))',
+				'luxury-bronze': 'hsl(var(--luxury-bronze))',
+				'premium-cream': 'hsl(var(--premium-cream))'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

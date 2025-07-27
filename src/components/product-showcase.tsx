@@ -7,19 +7,19 @@ const ProductShowcase = () => {
   
   const images = [
     {
-      src: "/lovable-uploads/94f2d63c-1e9d-406e-8c4a-49954e2871cc.png",
-      alt: "Premium Rakhi Envelope - Happy Raksha Bandhan",
-      title: "Happy Raksha Bandhan Design"
+      src: "/lovable-uploads/d8a6a91a-fea2-4d9f-8d6b-14eb539585d1.png",
+      alt: "Premium Rakhi Envelope - Happy Raksha Bandhan with Gold Foil",
+      title: "Gold Foil Raksha Bandhan Design"
     },
     {
-      src: "/lovable-uploads/ad33bffe-0129-489e-b9a8-c59b3fe83d66.png", 
-      alt: "Premium Rakhi Envelope Design",
-      title: "Elegant Typography Design"
+      src: "/lovable-uploads/350dacf5-a9c1-44ed-b69e-ee0b6a86251b.png", 
+      alt: "Premium ₹500 Note in Luxury Transparent Envelope",
+      title: "Perfect for Currency Notes"
     },
     {
-      src: "/lovable-uploads/226c6185-a72f-4586-b299-69638902e829.png",
-      alt: "Premium Rakhi Envelope in Hand",
-      title: "Perfect for Gift Money"
+      src: "/lovable-uploads/d8a6a91a-fea2-4d9f-8d6b-14eb539585d1.png",
+      alt: "Transparent Envelope with Gold Border",
+      title: "Luxury Transparent Design"
     }
   ];
 
