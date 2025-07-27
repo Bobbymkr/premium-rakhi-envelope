@@ -38,7 +38,7 @@ All colors MUST be HSL.
     --ring: 45 100% 70%;
 
     --radius: 0.75rem;
-    
+
     /* Premium Color Palette */
     --accent-gold: 45 100% 70%;
     --rose-gold: 15 80% 80%;
@@ -46,14 +46,27 @@ All colors MUST be HSL.
     --ivory: 60 20% 98%;
     --luxury-bronze: 30 60% 45%;
     --premium-cream: 50 40% 95%;
-    
+
     /* Premium Gradients */
-    --gradient-premium: linear-gradient(135deg, hsl(var(--premium-cream)), hsl(var(--ivory)));
-    --gradient-gold: linear-gradient(135deg, hsl(var(--accent-gold)), hsl(var(--rose-gold)));
-    --gradient-text: linear-gradient(135deg, hsl(var(--accent-gold)), hsl(var(--luxury-bronze)));
-    
+    --gradient-premium: linear-gradient(
+      135deg,
+      hsl(var(--premium-cream)),
+      hsl(var(--ivory))
+    );
+    --gradient-gold: linear-gradient(
+      135deg,
+      hsl(var(--accent-gold)),
+      hsl(var(--rose-gold))
+    );
+    --gradient-text: linear-gradient(
+      135deg,
+      hsl(var(--accent-gold)),
+      hsl(var(--luxury-bronze))
+    );
+
     /* Premium Effects */
-    --shadow-soft: 0 4px 15px -3px rgba(0, 0, 0, 0.1), 0 2px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-soft: 0 4px 15px -3px rgba(0, 0, 0, 0.1),
+      0 2px 6px -2px rgba(0, 0, 0, 0.05);
     --shadow-glow: 0 0 30px rgba(255, 215, 0, 0.3);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -120,7 +133,7 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground font-sans;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
   }
 }
 
@@ -129,62 +142,149 @@ All colors MUST be HSL.
   .bg-gradient-premium {
     background: var(--gradient-premium);
   }
-  
+
   .bg-gradient-text {
     background: var(--gradient-text);
   }
-  
+
   .card-glass {
     @apply bg-white/20 backdrop-blur-lg border border-white/30 rounded-xl;
     box-shadow: var(--shadow-soft);
   }
-  
+
   .btn-primary {
     @apply bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6 py-3 rounded-lg;
     background: var(--gradient-gold);
     box-shadow: var(--shadow-soft);
     transition: var(--transition-smooth);
   }
-  
+
   .btn-primary:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-glow);
   }
-  
+
   .btn-glass {
     @apply bg-white/10 backdrop-blur-md border border-white/20 text-foreground hover:bg-white/20 rounded-lg px-4 py-2;
     transition: var(--transition-smooth);
   }
-  
+
   .shadow-glow {
     box-shadow: var(--shadow-glow);
   }
-  
+
   .shadow-soft {
     box-shadow: var(--shadow-soft);
   }
-  
+
   .whatsapp-btn {
     @apply bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full flex items-center gap-3 font-semibold;
     transition: var(--transition-smooth);
   }
-  
+
   /* 3D Effects */
   .perspective-1000 {
     perspective: 1000px;
   }
-  
+
   .hover\:rotate-y-5:hover {
     transform: rotateY(5deg);
   }
-  
+
   /* Floating Animation */
   .floating-element {
     animation: float 6s ease-in-out infinite;
   }
-  
+
   @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
+    0%,
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+      transform: translateY(-15px) rotate(1deg);
+    }
+    50% {
+      transform: translateY(-25px) rotate(0deg);
+    }
+    75% {
+      transform: translateY(-10px) rotate(-1deg);
+    }
+  }
+
+  /* Enhanced Animations */
+  .animate-in {
+    animation-fill-mode: both;
+  }
+
+  .slide-in-from-left {
+    animation: slide-in-left 1s ease-out;
+  }
+
+  .slide-in-from-right {
+    animation: slide-in-right 1s ease-out;
+  }
+
+  .slide-in-from-bottom {
+    animation: slide-in-bottom 1s ease-out;
+  }
+
+  @keyframes slide-in-left {
+    0% {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slide-in-right {
+    0% {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slide-in-bottom {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Enhanced glassmorphism */
+  .card-glass {
+    position: relative;
+  }
+
+  .card-glass::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.1)
+    );
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: xor;
+    -webkit-mask-composite: xor;
   }
 }
