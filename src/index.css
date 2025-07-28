@@ -8,56 +8,50 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* BACKUP: Previous Gold & Luxury Theme (for future reference)
-    --background: 50 40% 95%;  --primary: 45 100% 70%;  --accent-gold: 45 100% 70%;
-    --secondary: 15 80% 80%;   --rose-gold: 15 80% 80%;  --lavender: 270 30% 85%; */
-    
-    /* Premium Design System - Deep Maroon & Gold Luxury Theme */
-    --background: 50 30% 96%;
-    --foreground: 0 10% 15%;
+    /* Premium Design System - Gold & Luxury Theme */
+    --background: 50 40% 95%;
+    --foreground: 24 9% 10%;
 
-    --card: 0 15% 98%;
-    --card-foreground: 0 10% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 24 9% 10%;
 
-    --popover: 0 15% 98%;
-    --popover-foreground: 0 10% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 24 9% 10%;
 
-    --primary: 350 85% 25%;
-    --primary-foreground: 50 30% 96%;
+    --primary: 45 100% 70%;
+    --primary-foreground: 24 9% 10%;
 
-    --secondary: 45 90% 65%;
-    --secondary-foreground: 0 10% 15%;
+    --secondary: 15 80% 80%;
+    --secondary-foreground: 24 9% 10%;
 
-    --muted: 350 10% 96%;
-    --muted-foreground: 350 5% 45%;
+    --muted: 60 20% 98%;
+    --muted-foreground: 25 5% 45%;
 
-    --accent: 350 40% 85%;
-    --accent-foreground: 0 10% 15%;
+    --accent: 270 30% 85%;
+    --accent-foreground: 24 9% 10%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 50 30% 96%;
+    --destructive-foreground: 60 20% 98%;
 
-    --border: 350 20% 85%;
-    --input: 350 20% 85%;
-    --ring: 350 85% 25%;
+    --border: 45 50% 85%;
+    --input: 45 50% 85%;
+    --ring: 45 100% 70%;
 
     --radius: 0.75rem;
 
-    /* Premium Maroon & Gold Palette */
-    --accent-gold: 45 90% 65%;
-    --deep-maroon: 350 85% 25%;
-    --burgundy: 350 70% 35%;
-    --rose-gold: 15 80% 75%;
-    --ivory: 50 30% 96%;
+    /* Premium Color Palette */
+    --accent-gold: 45 100% 70%;
+    --rose-gold: 15 80% 80%;
+    --lavender: 270 30% 85%;
+    --ivory: 60 20% 98%;
     --luxury-bronze: 30 60% 45%;
-    --premium-cream: 50 20% 94%;
+    --premium-cream: 50 40% 95%;
 
-    /* Premium Maroon & Gold Gradients */
+    /* Premium Gradients */
     --gradient-premium: linear-gradient(
       135deg,
-      hsl(var(--deep-maroon)),
-      hsl(var(--burgundy)),
-      hsl(var(--premium-cream))
+      hsl(var(--premium-cream)),
+      hsl(var(--ivory))
     );
     --gradient-gold: linear-gradient(
       135deg,
@@ -67,12 +61,7 @@ All colors MUST be HSL.
     --gradient-text: linear-gradient(
       135deg,
       hsl(var(--accent-gold)),
-      hsl(var(--deep-maroon))
-    );
-    --gradient-maroon: linear-gradient(
-      135deg,
-      hsl(var(--deep-maroon)),
-      hsl(var(--burgundy))
+      hsl(var(--luxury-bronze))
     );
 
     /* Premium Effects */
