@@ -82,7 +82,7 @@ const HeroSection = () => {
               <span className="bg-gradient-to-r from-rose-gold to-accent-gold bg-clip-text text-transparent font-semibold">
                 Celebrate bonds with style
               </span>{" "}
-              and make this Raksha-Bandhan unforgettable.
+              and make this Raksha-Bandhan unforgettable with us.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start mb-12">
