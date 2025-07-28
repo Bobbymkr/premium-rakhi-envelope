@@ -41,16 +41,3 @@
   color: #888;
 }
 
-import React from "react";
-import { Analytics } from "@vercel/analytics/next";
-
-function App() {
-  return (
-    <div id="root">
-      {/* ...existing app content... */}
-      <Analytics />
-    </div>
-  );
-}
-
-export default App;
