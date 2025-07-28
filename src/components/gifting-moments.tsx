@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Heart, Sparkles } from "lucide-react";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import { useIsDesktop } from "@/components/ui/useIsDesktop";
 
 const GiftingMoments = () => {
   const [currentMoment, setCurrentMoment] = useState(0);
@@ -40,6 +42,8 @@ const GiftingMoments = () => {
 
   const handleMouseEnter = () => setIsAutoPlay(false);
   const handleMouseLeave = () => setIsAutoPlay(true);
+
+  const isDesktop = useIsDesktop();
 
   return (
     <section className="py-24 relative overflow-hidden bg-gradient-to-br from-accent-gold/5 via-background to-rose-gold/5">
@@ -98,34 +102,30 @@ const GiftingMoments = () => {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
-            <div className="card-glass p-8 bg-gradient-to-br from-white/40 via-white/25 to-white/15 backdrop-blur-2xl border-2 border-white/40 shadow-2xl hover:shadow-accent-gold/30 transition-all duration-700 group">
-              <div className="relative overflow-hidden rounded-2xl">
-                <img
-                  key={currentMoment}
-                  src={moments[currentMoment].src}
-                  alt={moments[currentMoment].alt}
-                  className="w-full h-auto transform group-hover:scale-105 transition-transform duration-500 rounded-2xl"
-                />
-                
-                {/* Navigation */}
-                <button
-                  onClick={prevMoment}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-xl border border-accent-gold/30 rounded-full p-3 opacity-80 hover:opacity-100 hover:scale-110 transition-all duration-300 shadow-xl"
-                >
-                  <ChevronLeft className="w-5 h-5 text-foreground" />
-                </button>
-                <button
-                  onClick={nextMoment}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-xl border border-accent-gold/30 rounded-full p-3 opacity-80 hover:opacity-100 hover:scale-110 transition-all duration-300 shadow-xl"
-                >
-                  <ChevronRight className="w-5 h-5 text-foreground" />
-                </button>
-
-                {/* Overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-accent-gold/10 via-transparent to-rose-gold/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
-              </div>
-
-              {/* Indicators */}
+            <Carousel>
+              <CarouselContent>
+                {moments.map((moment, idx) => (
+                  <CarouselItem key={moment.src}>
+                    <img
+                      src={moment.src}
+                      alt={moment.alt}
+                      className="w-full h-auto rounded-2xl"
+                    />
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              {/* Arrows only on desktop */}
+              {isDesktop && (
+                <>
+                  <button onClick={prevMoment} className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-xl border border-accent-gold/30 rounded-full p-3 opacity-80 hover:opacity-100 hover:scale-110 transition-all duration-300 shadow-xl">
+                    <ChevronLeft className="w-5 h-5 text-foreground" />
+                  </button>
+                  <button onClick={nextMoment} className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-xl border border-accent-gold/30 rounded-full p-3 opacity-80 hover:opacity-100 hover:scale-110 transition-all duration-300 shadow-xl">
+                    <ChevronRight className="w-5 h-5 text-foreground" />
+                  </button>
+                </>
+              )}
+              {/* Dots always clickable */}
               <div className="flex justify-center mt-6 gap-3">
                 {moments.map((_, index) => (
                   <button
@@ -143,7 +143,7 @@ const GiftingMoments = () => {
                   />
                 ))}
               </div>
-            </div>
+            </Carousel>
           </div>
 
           {/* Content Section */}
