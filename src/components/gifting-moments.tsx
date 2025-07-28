@@ -1,10 +1,9 @@
-import { useState, useEffect } from "react";
+import { useRef, useState, useCallback } from "react";
 import { ChevronLeft, ChevronRight, Heart, Sparkles } from "lucide-react";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { useIsDesktop } from "@/components/ui/useIsDesktop";
 
 const GiftingMoments = () => {
-  const [currentMoment, setCurrentMoment] = useState(0);
   const [isAutoPlay, setIsAutoPlay] = useState(true);
 
   const moments = [
@@ -24,26 +23,26 @@ const GiftingMoments = () => {
     }
   ];
 
-  const nextMoment = () => {
-    setCurrentMoment((prev) => (prev + 1) % moments.length);
+  const onSelect = useCallback((embla) => {
+    setSelectedIndex(embla.selectedScrollSnap());
+  }, []);
+  const setApi = useCallback((embla) => {
+    emblaApiRef.current = embla;
+    if (embla) {
+      embla.on("select", () => onSelect(embla));
+      onSelect(embla);
+    }
+  }, [onSelect]);
+  const scrollTo = (idx) => {
+    if (emblaApiRef.current) emblaApiRef.current.scrollTo(idx);
   };
-
-  const prevMoment = () => {
-    setCurrentMoment((prev) => (prev - 1 + moments.length) % moments.length);
-  };
-
-  useEffect(() => {
-    if (!isAutoPlay) return;
-    const interval = setInterval(() => {
-      setCurrentMoment((prev) => (prev + 1) % moments.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [isAutoPlay, moments.length]);
 
   const handleMouseEnter = () => setIsAutoPlay(false);
   const handleMouseLeave = () => setIsAutoPlay(true);
 
   const isDesktop = useIsDesktop();
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const emblaApiRef = useRef(null);
 
   return (
     <section className="py-24 relative overflow-hidden bg-gradient-to-br from-accent-gold/5 via-background to-rose-gold/5">
@@ -102,7 +101,7 @@ const GiftingMoments = () => {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
-            <Carousel>
+            <Carousel setApi={setApi}>
               <CarouselContent>
                 {moments.map((moment, idx) => (
                   <CarouselItem key={moment.src}>
@@ -117,10 +116,10 @@ const GiftingMoments = () => {
               {/* Arrows only on desktop */}
               {isDesktop && (
                 <>
-                  <button onClick={prevMoment} className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-xl border border-accent-gold/30 rounded-full p-3 opacity-80 hover:opacity-100 hover:scale-110 transition-all duration-300 shadow-xl">
+                  <button onClick={() => scrollTo(selectedIndex - 1 < 0 ? moments.length - 1 : selectedIndex - 1)} className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-xl border border-accent-gold/30 rounded-full p-3 opacity-80 hover:opacity-100 hover:scale-110 transition-all duration-300 shadow-xl">
                     <ChevronLeft className="w-5 h-5 text-foreground" />
                   </button>
-                  <button onClick={nextMoment} className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-xl border border-accent-gold/30 rounded-full p-3 opacity-80 hover:opacity-100 hover:scale-110 transition-all duration-300 shadow-xl">
+                  <button onClick={() => scrollTo((selectedIndex + 1) % moments.length)} className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-xl border border-accent-gold/30 rounded-full p-3 opacity-80 hover:opacity-100 hover:scale-110 transition-all duration-300 shadow-xl">
                     <ChevronRight className="w-5 h-5 text-foreground" />
                   </button>
                 </>
@@ -130,13 +129,9 @@ const GiftingMoments = () => {
                 {moments.map((_, index) => (
                   <button
                     key={index}
-                    onClick={() => {
-                      setCurrentMoment(index);
-                      setIsAutoPlay(false);
-                      setTimeout(() => setIsAutoPlay(true), 5000);
-                    }}
+                    onClick={() => scrollTo(index)}
                     className={`transition-all duration-300 ${
-                      index === currentMoment
+                      index === selectedIndex
                         ? "w-8 h-3 bg-gradient-to-r from-accent-gold to-rose-gold rounded-full"
                         : "w-3 h-3 bg-foreground/30 hover:bg-foreground/50 rounded-full hover:scale-110"
                     }`}
@@ -155,13 +150,13 @@ const GiftingMoments = () => {
                 </div>
                 <div className="flex-1">
                   <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-rose-gold to-accent-gold bg-clip-text text-transparent">
-                    {moments[currentMoment].title}
+                    {moments[selectedIndex].title}
                   </h3>
                   <p className="text-foreground/80 leading-relaxed mb-4 text-lg">
-                    {moments[currentMoment].description}
+                    {moments[selectedIndex].description}
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {moments[currentMoment].hashtags.map((tag, index) => (
+                    {moments[selectedIndex].hashtags.map((tag, index) => (
                       <span
                         key={index}
                         className="px-3 py-1 bg-gradient-to-r from-accent-gold/20 to-rose-gold/20 backdrop-blur-sm rounded-full text-sm font-medium text-foreground/80 border border-accent-gold/30"
