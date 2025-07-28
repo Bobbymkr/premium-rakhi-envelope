@@ -62,10 +62,11 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Premium Colors
+				// Premium Maroon & Gold Colors
 				'accent-gold': 'hsl(var(--accent-gold))',
+				'deep-maroon': 'hsl(var(--deep-maroon))',
+				'burgundy': 'hsl(var(--burgundy))',
 				'rose-gold': 'hsl(var(--rose-gold))',
-				'lavender': 'hsl(var(--lavender))',
 				'ivory': 'hsl(var(--ivory))',
 				'luxury-bronze': 'hsl(var(--luxury-bronze))',
 				'premium-cream': 'hsl(var(--premium-cream))'
