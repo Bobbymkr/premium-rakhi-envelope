@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
-import { useIsDesktop } from "@/components/ui/useIsDesktop";
 
 const ProductShowcase = () => {
   const [currentImage, setCurrentImage] = useState(0);
@@ -21,14 +19,6 @@ const ProductShowcase = () => {
     },
   ];
 
-  const nextImage = () => {
-    setCurrentImage((prev) => (prev + 1) % images.length);
-  };
-
-  const prevImage = () => {
-    setCurrentImage((prev) => (prev - 1 + images.length) % images.length);
-  };
-
   // Auto-play functionality
   useEffect(() => {
     if (!isAutoPlay) return;
@@ -43,8 +33,6 @@ const ProductShowcase = () => {
   // Pause auto-play on hover
   const handleMouseEnter = () => setIsAutoPlay(false);
   const handleMouseLeave = () => setIsAutoPlay(true);
-
-  const isDesktop = useIsDesktop();
 
   return (
     <section className="py-24 relative overflow-hidden bg-gradient-to-br from-background via-premium-cream to-ivory">
@@ -108,30 +96,21 @@ const ProductShowcase = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Enhanced Image Carousel */}
           <div className="relative animate-in slide-in-from-left duration-1000 delay-300">
-            <Carousel>
-              <CarouselContent>
-                {images.map((img, idx) => (
-                  <CarouselItem key={img.src}>
-                    <img
-                      src={img.src}
-                      alt={img.alt}
-                      className="w-full h-auto rounded-2xl shadow-2xl"
-                    />
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              {/* Arrows only on desktop */}
-              {isDesktop && (
-                <>
-                  <button onClick={prevImage} className="absolute left-6 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-xl border-2 border-accent-gold/30 rounded-full p-4 opacity-90 hover:opacity-100 hover:scale-110 hover:bg-white hover:border-accent-gold/60 transition-all duration-300 shadow-2xl z-10 group/btn">
-                    <ChevronLeft className="w-6 h-6 text-foreground group-hover/btn:text-accent-gold transition-colors duration-300" />
-                  </button>
-                  <button onClick={nextImage} className="absolute right-6 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-xl border-2 border-accent-gold/30 rounded-full p-4 opacity-90 hover:opacity-100 hover:scale-110 hover:bg-white hover:border-accent-gold/60 transition-all duration-300 shadow-2xl z-10 group/btn">
-                    <ChevronRight className="w-6 h-6 text-foreground group-hover/btn:text-accent-gold transition-colors duration-300" />
-                  </button>
-                </>
-              )}
-              {/* Dots always clickable */}
+            <div
+              className="relative"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              {/* Image Display */}
+              <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+                <img
+                  src={images[currentImage].src}
+                  alt={images[currentImage].alt}
+                  className="w-full h-auto transition-all duration-500 ease-in-out"
+                />
+              </div>
+
+              {/* Dots Navigation */}
               <div className="flex justify-center mt-8 gap-4">
                 {images.map((_, index) => (
                   <button
@@ -153,7 +132,7 @@ const ProductShowcase = () => {
                   </button>
                 ))}
               </div>
-            </Carousel>
+            </div>
           </div>
 
           {/* Enhanced Features */}

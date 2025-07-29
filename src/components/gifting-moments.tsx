@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight, Heart, Sparkles } from "lucide-react";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
-import { useIsDesktop } from "@/components/ui/useIsDesktop";
+import { Heart, Sparkles } from "lucide-react";
 
 const GiftingMoments = () => {
   const [currentMoment, setCurrentMoment] = useState(0);
@@ -12,25 +10,19 @@ const GiftingMoments = () => {
       src: "/lovable-uploads/7bf18d2b-a1cf-48ac-8f98-ec10aed6f11e.png",
       alt: "Premium gift box presentation with lavender and wrapped gifts",
       title: "Gift Box Vibes",
-      description: "Perfect for premium gifting moments - pair it with your favorite wrapping style",
-      hashtags: ["#GiftGoals", "#PremiumVibes", "#RakshaBandhan"]
+      description:
+        "Perfect for premium gifting moments - pair it with your favorite wrapping style",
+      hashtags: ["#GiftGoals", "#PremiumVibes", "#RakshaBandhan"],
     },
     {
-      src: "/lovable-uploads/935fae02-1562-413a-ae39-4a24e3fe69de.png", 
+      src: "/lovable-uploads/935fae02-1562-413a-ae39-4a24e3fe69de.png",
       alt: "Traditional Raksha Bandhan setup with diyas and marigolds",
       title: "Festival Aesthetic",
-      description: "Create that perfect traditional moment with diyas, flowers, and cultural vibes",
-      hashtags: ["#FestivalVibes", "#Traditional", "#CulturalMoments"]
-    }
+      description:
+        "Create that perfect traditional moment with diyas, flowers, and cultural vibes",
+      hashtags: ["#FestivalVibes", "#Traditional", "#CulturalMoments"],
+    },
   ];
-
-  const nextMoment = () => {
-    setCurrentMoment((prev) => (prev + 1) % moments.length);
-  };
-
-  const prevMoment = () => {
-    setCurrentMoment((prev) => (prev - 1 + moments.length) % moments.length);
-  };
 
   useEffect(() => {
     if (!isAutoPlay) return;
@@ -43,128 +35,149 @@ const GiftingMoments = () => {
   const handleMouseEnter = () => setIsAutoPlay(false);
   const handleMouseLeave = () => setIsAutoPlay(true);
 
-  const isDesktop = useIsDesktop();
-
   return (
-    <section className="py-24 relative overflow-hidden bg-gradient-to-br from-accent-gold/5 via-background to-rose-gold/5">
-      {/* Background Elements */}
+    <section className="py-32 relative overflow-hidden bg-gradient-to-br from-accent-gold/8 via-background to-rose-gold/8">
+      {/* Enhanced Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-lavender/5 via-transparent to-accent-gold/5" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_800px_400px_at_20%_50%,rgba(255,215,0,0.03),transparent)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_600px_300px_at_80%_20%,rgba(218,165,32,0.04),transparent)]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-lavender/8 via-transparent to-accent-gold/8" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_1000px_500px_at_20%_50%,rgba(255,215,0,0.06),transparent)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_800px_400px_at_80%_20%,rgba(218,165,32,0.08),transparent)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_600px_300px_at_50%_80%,rgba(183,148,244,0.04),transparent)]" />
       </div>
 
-      {/* Floating Elements */}
+      {/* Enhanced Floating Elements */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="floating-element absolute top-20 left-32 w-5 h-5 bg-gradient-to-br from-accent-gold to-rose-gold rounded-full opacity-30" />
-        <div 
-          className="floating-element absolute top-40 right-20 w-4 h-4 bg-gradient-to-br from-lavender to-accent-gold rounded-full opacity-25"
+        <div className="floating-element absolute top-20 left-32 w-6 h-6 bg-gradient-to-br from-accent-gold to-rose-gold rounded-full opacity-40 blur-[0.5px]" />
+        <div
+          className="floating-element absolute top-40 right-20 w-5 h-5 bg-gradient-to-br from-lavender to-accent-gold rounded-full opacity-35 blur-[1px]"
           style={{ animationDelay: "1.5s" }}
         />
-        <div 
-          className="floating-element absolute bottom-32 left-20 w-6 h-6 bg-rose-gold rounded-full opacity-20"
+        <div
+          className="floating-element absolute bottom-32 left-20 w-7 h-7 bg-gradient-to-br from-rose-gold to-luxury-bronze rounded-full opacity-25"
           style={{ animationDelay: "3s" }}
+        />
+        <div
+          className="floating-element absolute top-60 left-1/2 w-4 h-4 bg-gradient-to-br from-accent-gold to-lavender rounded-full opacity-30 blur-[2px]"
+          style={{ animationDelay: "0.8s" }}
+        />
+        <div
+          className="floating-element absolute bottom-48 right-32 w-5 h-5 bg-gradient-to-br from-rose-gold to-accent-gold rounded-full opacity-35"
+          style={{ animationDelay: "2.2s" }}
         />
       </div>
 
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
-        <div className="text-center mb-16 animate-in slide-in-from-bottom duration-1000">
-          <div className="flex items-center justify-center mb-6 group">
-            <Heart className="w-6 h-6 text-rose-gold mr-3 group-hover:scale-110 transition-transform duration-300" />
-            <span className="text-sm font-semibold tracking-[0.2em] uppercase bg-gradient-to-r from-rose-gold to-accent-gold bg-clip-text text-transparent">
+        {/* Enhanced Section Header */}
+        <div className="text-center mb-20 animate-in slide-in-from-bottom duration-1000">
+          <div className="flex items-center justify-center mb-8 group">
+            <div className="relative">
+              <Heart className="w-7 h-7 text-rose-gold mr-4 group-hover:scale-110 transition-transform duration-300 drop-shadow-lg" />
+              <div className="absolute -inset-1 bg-rose-gold/20 rounded-full blur opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            </div>
+            <span className="text-sm font-bold tracking-[0.25em] uppercase bg-gradient-to-r from-rose-gold via-accent-gold to-luxury-bronze bg-clip-text text-transparent">
               Gifting Moments
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-6 tracking-tight">
-            <span className="bg-gradient-to-r from-rose-gold via-accent-gold to-luxury-bronze bg-clip-text text-transparent">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-black leading-tight mb-8 tracking-tight">
+            <span className="bg-gradient-to-r from-rose-gold via-accent-gold to-luxury-bronze bg-clip-text text-transparent drop-shadow-sm">
               Style Your
             </span>
             <br />
-            <span className="text-foreground relative">
+            <span className="text-foreground drop-shadow-sm relative">
               Raksha Bandhan
-              <div className="absolute -bottom-1 left-0 w-2/3 h-1 bg-gradient-to-r from-rose-gold to-accent-gold rounded-full opacity-80" />
+              <div className="absolute -bottom-2 left-0 w-3/4 h-1.5 bg-gradient-to-r from-rose-gold via-accent-gold to-luxury-bronze rounded-full opacity-90" />
+              <div className="absolute -bottom-1 left-0 w-1/2 h-0.5 bg-gradient-to-r from-white/60 to-transparent rounded-full" />
             </span>
           </h2>
-          <p className="text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto leading-relaxed">
-            From premium gift boxes to traditional setups - discover endless ways to make your gift{" "}
-            <span className="bg-gradient-to-r from-accent-gold to-rose-gold bg-clip-text text-transparent font-semibold">
+          <p className="text-xl md:text-2xl lg:text-xl text-foreground/85 max-w-3xl mx-auto leading-relaxed font-medium">
+            From premium gift boxes to traditional setups - discover endless
+            ways to make your gift{" "}
+            <span className="bg-gradient-to-r from-accent-gold via-rose-gold to-luxury-bronze bg-clip-text text-transparent font-bold">
               Instagram-worthy
-            </span>
+            </span>{" "}
+            and create memories that last forever.
           </p>
         </div>
 
-        {/* Main Content */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Image Section */}
-          <div 
+        {/* Enhanced Main Content */}
+        <div className="grid lg:grid-cols-2 gap-20 items-center">
+          {/* Enhanced Image Section */}
+          <div
             className="relative animate-in slide-in-from-left duration-1000 delay-300"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
-            <Carousel>
-              <CarouselContent>
-                {moments.map((moment, idx) => (
-                  <CarouselItem key={moment.src}>
-                    <img
-                      src={moment.src}
-                      alt={moment.alt}
-                      className="w-full h-auto rounded-2xl"
-                    />
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              {/* Arrows only on desktop */}
-              {isDesktop && (
-                <>
-                  <button onClick={prevMoment} className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-xl border border-accent-gold/30 rounded-full p-3 opacity-80 hover:opacity-100 hover:scale-110 transition-all duration-300 shadow-xl">
-                    <ChevronLeft className="w-5 h-5 text-foreground" />
-                  </button>
-                  <button onClick={nextMoment} className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-xl border border-accent-gold/30 rounded-full p-3 opacity-80 hover:opacity-100 hover:scale-110 transition-all duration-300 shadow-xl">
-                    <ChevronRight className="w-5 h-5 text-foreground" />
-                  </button>
-                </>
-              )}
-              {/* Dots always clickable */}
-              <div className="flex justify-center mt-6 gap-3">
-                {moments.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => {
-                      setCurrentMoment(index);
-                      setIsAutoPlay(false);
-                      setTimeout(() => setIsAutoPlay(true), 5000);
-                    }}
-                    className={`transition-all duration-300 ${
-                      index === currentMoment
-                        ? "w-8 h-3 bg-gradient-to-r from-accent-gold to-rose-gold rounded-full"
-                        : "w-3 h-3 bg-foreground/30 hover:bg-foreground/50 rounded-full hover:scale-110"
-                    }`}
-                  />
-                ))}
+            <div className="relative overflow-hidden rounded-3xl shadow-2xl group">
+              {/* Image with enhanced effects */}
+              <div className="relative">
+                <img
+                  src={moments[currentMoment].src}
+                  alt={moments[currentMoment].alt}
+                  className="w-full h-auto transition-all duration-700 ease-in-out group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
-            </Carousel>
+
+              {/* Floating badge */}
+              <div className="absolute top-6 right-6 bg-white/95 backdrop-blur-xl border-2 border-accent-gold/30 rounded-full px-4 py-2 shadow-xl">
+                <span className="text-sm font-bold bg-gradient-to-r from-accent-gold to-rose-gold bg-clip-text text-transparent">
+                  {currentMoment + 1} / {moments.length}
+                </span>
+              </div>
+            </div>
+
+            {/* Enhanced Dots Navigation */}
+            <div className="flex justify-center mt-8 gap-4">
+              {moments.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => {
+                    setCurrentMoment(index);
+                    setIsAutoPlay(false);
+                    setTimeout(() => setIsAutoPlay(true), 5000);
+                  }}
+                  className={`relative transition-all duration-300 group/dot ${
+                    index === currentMoment
+                      ? "w-10 h-4 bg-gradient-to-r from-accent-gold via-rose-gold to-luxury-bronze rounded-full scale-110 shadow-lg"
+                      : "w-4 h-4 bg-foreground/40 hover:bg-foreground/60 hover:scale-125 rounded-full"
+                  }`}
+                >
+                  {index === currentMoment && (
+                    <>
+                      <div className="absolute inset-0 bg-gradient-to-r from-accent-gold via-rose-gold to-luxury-bronze rounded-full animate-pulse" />
+                      <div className="absolute -inset-1 bg-gradient-to-r from-accent-gold/40 via-rose-gold/40 to-luxury-bronze/40 rounded-full blur opacity-75" />
+                    </>
+                  )}
+                  <div className="absolute -inset-2 bg-accent-gold/20 rounded-full opacity-0 group-hover/dot:opacity-100 transition-opacity duration-300" />
+                </button>
+              ))}
+            </div>
           </div>
 
-          {/* Content Section */}
-          <div className="space-y-8 animate-in slide-in-from-right duration-1000 delay-500">
-            <div className="card-glass p-8 bg-gradient-to-br from-white/30 via-white/20 to-white/10 backdrop-blur-2xl border-2 border-white/30 shadow-xl hover:shadow-2xl transition-all duration-500 group">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-rose-gold to-accent-gold rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                  <Sparkles className="w-6 h-6 text-white" />
+          {/* Enhanced Content Section */}
+          <div className="space-y-10 animate-in slide-in-from-right duration-1000 delay-500">
+            {/* Main Feature Card */}
+            <div className="card-glass p-10 bg-gradient-to-br from-white/40 via-white/25 to-white/15 backdrop-blur-3xl border-2 border-white/40 shadow-2xl hover:shadow-3xl hover:scale-105 transition-all duration-700 group relative overflow-hidden">
+              {/* Animated background gradient */}
+              <div className="absolute inset-0 bg-gradient-to-br from-accent-gold/10 via-rose-gold/10 to-lavender/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+              <div className="flex items-start gap-6 relative z-10">
+                <div className="w-16 h-16 bg-gradient-to-br from-rose-gold via-accent-gold to-luxury-bronze rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                  <Sparkles className="w-8 h-8 text-white drop-shadow-lg" />
+                  <div className="absolute -inset-1 bg-gradient-to-br from-rose-gold/40 via-accent-gold/40 to-luxury-bronze/40 rounded-2xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-rose-gold to-accent-gold bg-clip-text text-transparent">
+                  <h3 className="text-3xl font-black mb-6 bg-gradient-to-r from-rose-gold via-accent-gold to-luxury-bronze bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300 origin-left">
                     {moments[currentMoment].title}
                   </h3>
-                  <p className="text-foreground/80 leading-relaxed mb-4 text-lg">
+                  <p className="text-foreground/85 leading-relaxed mb-6 text-lg font-medium">
                     {moments[currentMoment].description}
                   </p>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-3">
                     {moments[currentMoment].hashtags.map((tag, index) => (
                       <span
                         key={index}
-                        className="px-3 py-1 bg-gradient-to-r from-accent-gold/20 to-rose-gold/20 backdrop-blur-sm rounded-full text-sm font-medium text-foreground/80 border border-accent-gold/30"
+                        className="px-4 py-2 bg-gradient-to-r from-accent-gold/25 to-rose-gold/25 backdrop-blur-sm rounded-full text-sm font-bold text-foreground/90 border-2 border-accent-gold/40 hover:border-accent-gold/60 hover:scale-105 transition-all duration-300 shadow-lg"
                       >
                         {tag}
                       </span>
@@ -174,33 +187,45 @@ const GiftingMoments = () => {
               </div>
             </div>
 
-            {/* Use Case Cards */}
-            <div className="space-y-4">
-              <div className="card-glass p-6 bg-gradient-to-br from-white/25 via-white/15 to-white/10 backdrop-blur-xl border border-white/30 shadow-lg hover:shadow-xl transition-all duration-300 group">
-                <h4 className="font-semibold text-lg mb-2 group-hover:bg-gradient-to-r group-hover:from-accent-gold group-hover:to-rose-gold group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
-                  💝 Premium Gift Boxes
-                </h4>
-                <p className="text-foreground/70 text-sm">
-                  Perfect for those luxury unboxing moments your followers will love
-                </p>
+            {/* Enhanced Use Case Cards */}
+            <div className="space-y-6">
+              <div className="card-glass p-8 bg-gradient-to-br from-white/35 via-white/20 to-white/15 backdrop-blur-2xl border-2 border-white/40 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-500 group relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-accent-gold/5 to-rose-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative z-10">
+                  <h4 className="font-black text-xl mb-3 group-hover:bg-gradient-to-r group-hover:from-accent-gold group-hover:to-rose-gold group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                    💝 Premium Gift Boxes
+                  </h4>
+                  <p className="text-foreground/80 leading-relaxed font-medium">
+                    Perfect for those luxury unboxing moments your followers
+                    will love - create that premium aesthetic
+                  </p>
+                </div>
               </div>
 
-              <div className="card-glass p-6 bg-gradient-to-br from-white/25 via-white/15 to-white/10 backdrop-blur-xl border border-white/30 shadow-lg hover:shadow-xl transition-all duration-300 group">
-                <h4 className="font-semibold text-lg mb-2 group-hover:bg-gradient-to-r group-hover:from-rose-gold group-hover:to-lavender group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
-                  🪔 Traditional Setups
-                </h4>
-                <p className="text-foreground/70 text-sm">
-                  Create that authentic cultural vibe with diyas and flowers
-                </p>
+              <div className="card-glass p-8 bg-gradient-to-br from-white/35 via-white/20 to-white/15 backdrop-blur-2xl border-2 border-white/40 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-500 group relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-rose-gold/5 to-lavender/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative z-10">
+                  <h4 className="font-black text-xl mb-3 group-hover:bg-gradient-to-r group-hover:from-rose-gold group-hover:to-lavender group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                    🪔 Traditional Setups
+                  </h4>
+                  <p className="text-foreground/80 leading-relaxed font-medium">
+                    Create that authentic cultural vibe with diyas, flowers, and
+                    traditional elements
+                  </p>
+                </div>
               </div>
 
-              <div className="card-glass p-6 bg-gradient-to-br from-white/25 via-white/15 to-white/10 backdrop-blur-xl border border-white/30 shadow-lg hover:shadow-xl transition-all duration-300 group">
-                <h4 className="font-semibold text-lg mb-2 group-hover:bg-gradient-to-r group-hover:from-lavender group-hover:to-accent-gold group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
-                  📸 Content Creation
-                </h4>
-                <p className="text-foreground/70 text-sm">
-                  Make your Raksha Bandhan posts stand out on social media
-                </p>
+              <div className="card-glass p-8 bg-gradient-to-br from-white/35 via-white/20 to-white/15 backdrop-blur-2xl border-2 border-white/40 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-500 group relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-lavender/5 to-accent-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative z-10">
+                  <h4 className="font-black text-xl mb-3 group-hover:bg-gradient-to-r group-hover:from-lavender group-hover:to-accent-gold group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                    📸 Content Creation
+                  </h4>
+                  <p className="text-foreground/80 leading-relaxed font-medium">
+                    Make your Raksha Bandhan posts stand out on social media
+                    with stunning visuals
+                  </p>
+                </div>
               </div>
             </div>
           </div>
