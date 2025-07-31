@@ -108,12 +108,12 @@ const GiftingMoments = () => {
             onMouseLeave={handleMouseLeave}
           >
             <div className="relative overflow-hidden rounded-3xl shadow-2xl group">
-              {/* Image with enhanced effects */}
-              <div className="relative">
+              {/* Image with enhanced effects and fixed dimensions */}
+              <div className="relative w-full h-[500px] md:h-[600px] lg:h-[550px]">
                 <img
                   src={moments[currentMoment].src}
                   alt={moments[currentMoment].alt}
-                  className="w-full h-auto transition-all duration-700 ease-in-out group-hover:scale-105"
+                  className="w-full h-full object-cover object-center transition-all duration-700 ease-in-out group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
