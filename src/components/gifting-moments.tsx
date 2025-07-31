@@ -7,7 +7,7 @@ const GiftingMoments = () => {
 
   const moments = [
     {
-      src: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=800&h=600&fit=crop&crop=center&auto=format&q=75",
+      src: "/lovable-uploads/320b9dcd-a6a2-4190-8f5d-4ba589ab218b.png",
       alt: "Premium gift box presentation with lavender and wrapped gifts",
       title: "Gift Box Vibes",
       description:
@@ -15,7 +15,7 @@ const GiftingMoments = () => {
       hashtags: ["#GiftGoals", "#PremiumVibes", "#RakshaBandhan"],
     },
     {
-      src: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop&crop=center&auto=format&q=75",
+      src: "/lovable-uploads/c1d69a56-f84f-4a4f-855d-bd617287a4b3.png",
       alt: "Traditional Raksha Bandhan setup with diyas and marigolds",
       title: "Festival Aesthetic",
       description:
