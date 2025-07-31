@@ -7,7 +7,7 @@ const GiftingMoments = () => {
 
   const moments = [
     {
-      src: "/lovable-uploads/good_one.png",
+      src: "/lovable-uploads/320b9dcd-a6a2-4190-8f5d-4ba589ab218b.png",
       alt: "Premium gift box presentation with lavender and wrapped gifts",
       title: "Gift Box Vibes",
       description:
@@ -15,7 +15,7 @@ const GiftingMoments = () => {
       hashtags: ["#GiftGoals", "#PremiumVibes", "#RakshaBandhan"],
     },
     {
-      src: "/lovable-uploads/good_two.png",
+      src: "/lovable-uploads/c1d69a56-f84f-4a4f-855d-bd617287a4b3.png",
       alt: "Traditional Raksha Bandhan setup with diyas and marigolds",
       title: "Festival Aesthetic",
       description:
@@ -113,7 +113,7 @@ const GiftingMoments = () => {
                 <img
                   src={moments[currentMoment].src}
                   alt={moments[currentMoment].alt}
-                  className="w-full h-full object-cover object-[65%_center] transition-all duration-700 ease-in-out group-hover:scale-105"
+                  className="w-full h-full object-cover object-center transition-all duration-700 ease-in-out group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
