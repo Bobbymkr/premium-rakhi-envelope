@@ -133,7 +133,7 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
-    font-family: "Playfair Display", serif;
+    font-family: "Lora", serif;
     font-weight: 400;
   }
 }

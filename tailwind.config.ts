@@ -19,7 +19,7 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'moshra': ['Playfair Display', 'serif'],
+				'leaffes': ['Lora', 'serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
